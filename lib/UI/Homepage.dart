@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:touchstone_assignment/UI/Bedroom.dart';
 
 class Homepage extends StatefulWidget {
   static String id='Homepage_Screen';
@@ -16,7 +17,7 @@ class _HomepageState extends State<Homepage> {
     return Scaffold(
 
       extendBody: true,
-      backgroundColor: Color(0xff054f93),
+      backgroundColor: Color(0xff0A4DA2),
       bottomNavigationBar: Material(
         elevation: 10,
         child: Container(
@@ -45,10 +46,9 @@ class _HomepageState extends State<Homepage> {
         ),
       ),
       body:Container(
-
         child: Stack(
           children: [
-            Expanded(child: SvgPicture.asset("lib/UIAssets/Circles.svg",fit: BoxFit.cover)),
+            SvgPicture.asset("lib/UIAssets/Circles.svg",fit: BoxFit.cover),
             SafeArea(
             child: Column(
               children: [
@@ -59,6 +59,7 @@ class _HomepageState extends State<Homepage> {
                       padding: const EdgeInsets.symmetric(horizontal:30.0,vertical: 38),
                       child: Text("Control\nPanel",
                       style: TextStyle(
+                          fontFamily: "Circular Std Book",
                         fontSize: 40,
                         color: Colors.white,
                         fontWeight: FontWeight.w600
@@ -82,7 +83,7 @@ class _HomepageState extends State<Homepage> {
                 Expanded(
                   child: Container(
                     decoration: BoxDecoration(
-                      color: Color(0xffeff4f7),
+                      color: Color(0xffF6F8FB),
                       borderRadius: BorderRadius.only(
                         topRight: Radius.circular(40.0),
                         topLeft: Radius.circular(40.0),
@@ -95,6 +96,7 @@ class _HomepageState extends State<Homepage> {
                           padding: const EdgeInsets.all(28.0),
                           child: Text("All Rooms",
                           style: TextStyle(
+                              fontFamily: "Circular Std Book",
                             color: Color(0xff022444),
                             fontSize: 26,
                             fontWeight: FontWeight.bold
@@ -109,39 +111,45 @@ class _HomepageState extends State<Homepage> {
                           crossAxisSpacing: 25,
                           primary: false,
                             children: [
-                              Card(
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(30),
-                                ),
-                                elevation: 2,
-                                child: Padding(
-                                  padding: const EdgeInsets.all(20.0),
-                                  child: Column(
-                                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                    crossAxisAlignment: CrossAxisAlignment.start,
-                                    children: [
-                                      Padding(
-                                        padding: const EdgeInsets.only(bottom:18.0),
-                                        child: SvgPicture.asset("lib/UIAssets/bed.svg",
-                                        height: 50,
-                                        width: 50,),
-                                      ),
-                                      Text("Bed room",
-                                      style: TextStyle(
-                                        color: Colors.black,
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 20
-                                      ),),
-                                      Padding(
-                                        padding: const EdgeInsets.only(top:4.0),
-                                        child: Text("4 Lights",
+                              InkWell(
+                                onTap:(){
+                                  Navigator.pushNamed(context, Bedroom.id);
+                                },
+                                child: Card(
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(30),
+                                  ),
+                                  elevation: 2,
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(20.0),
+                                    child: Column(
+                                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      children: [
+                                        Padding(
+                                          padding: const EdgeInsets.only(bottom:18.0),
+                                          child: SvgPicture.asset("lib/UIAssets/bed.svg",
+                                          height: 50,
+                                          width: 50,),
+                                        ),
+                                        Text("Bed room",
                                         style: TextStyle(
-                                          color: Colors.orangeAccent,
-                                          fontSize: 16,
-                                          fontWeight: FontWeight.bold
+                                          color: Colors.black,
+                                          fontFamily: "Circular Std Book",
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 20
                                         ),),
-                                      )
-                                    ],
+                                        Padding(
+                                          padding: const EdgeInsets.only(top:4.0),
+                                          child: Text("4 Lights",
+                                          style: TextStyle(
+                                            color: Colors.orangeAccent,
+                                            fontSize: 16,
+                                            fontWeight: FontWeight.bold
+                                          ),),
+                                        )
+                                      ],
+                                    ),
                                   ),
                                 ),
                               ),
@@ -165,6 +173,7 @@ class _HomepageState extends State<Homepage> {
                                       Text("Living room",
                                         style: TextStyle(
                                             color: Colors.black,
+                                            fontFamily: "Circular Std Book",
                                             fontWeight: FontWeight.bold,
                                             fontSize: 20
                                         ),),
@@ -201,6 +210,7 @@ class _HomepageState extends State<Homepage> {
                                       Text("Kitchen",
                                         style: TextStyle(
                                             color: Colors.black,
+                                            fontFamily: "Circular Std Book",
                                             fontWeight: FontWeight.bold,
                                             fontSize: 20
                                         ),),
@@ -237,6 +247,7 @@ class _HomepageState extends State<Homepage> {
                                       Text("Bathroom",
                                         style: TextStyle(
                                             color: Colors.black,
+                                            fontFamily: "Circular Std Book",
                                             fontWeight: FontWeight.bold,
                                             fontSize: 20
                                         ),),
@@ -273,6 +284,7 @@ class _HomepageState extends State<Homepage> {
                                       Text("Outdoor",
                                         style: TextStyle(
                                             color: Colors.black,
+                                            fontFamily: "Circular Std Book",
                                             fontWeight: FontWeight.bold,
                                             fontSize: 20
                                         ),),
@@ -309,6 +321,7 @@ class _HomepageState extends State<Homepage> {
                                       Text("Balcony",
                                         style: TextStyle(
                                             color: Colors.black,
+                                            fontFamily: "Circular Std Book",
                                             fontWeight: FontWeight.bold,
                                             fontSize: 20
                                         ),),
@@ -328,6 +341,7 @@ class _HomepageState extends State<Homepage> {
                             ],
                           ),
                         )),
+
                       ],
                     ),
                   ),
