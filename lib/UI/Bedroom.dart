@@ -12,7 +12,7 @@ class _BedroomState extends State<Bedroom> {
   List<String> buttonset=["Main Light","Desk lights","Bed Light"];
   List<String> icon_ad=["lib/UIAssets/surface1.svg","lib/UIAssets/furniture-and-household.svg","lib/UIAssets/bed (1).svg"];
   List<Color> color_panel=[Color(0xffFF9B9B),Color(0xff94EB9E),Color(0xff94CAEB),Color(0xffA594EB),Color(0xffDE94EB),Color(0xffEBD094),Colors.white];
-  double intensity=0;
+  double intensity=255;
   Color arccolor=Colors.orangeAccent;
   @override
   Widget build(BuildContext context) {
@@ -52,16 +52,23 @@ class _BedroomState extends State<Bedroom> {
         width: maxwidth,
         child: Stack(
           children: [
+            SvgPicture.asset("lib/UIAssets/Circles.svg",fit: BoxFit.cover),
             Positioned(
               right:30 ,
                 child: Stack(
                   alignment: Alignment.bottomCenter,
                     children: [SvgPicture.asset("lib/UIAssets/light bulb.svg",),
                       Positioned(
+                          bottom: 22,
+                          child: RotatedBox(quarterTurns: 2,
+                              child: MyArc(diameter: 26,color:Colors.black,alpha:255,))
+                      ),
+                      Positioned(
                         bottom: 22,
                         child: RotatedBox(quarterTurns: 2,
-                        child: MyArc(diameter: 26,color:arccolor,))
+                        child: MyArc(diameter: 26,color:arccolor,alpha: intensity.toInt(),))
                       ),
+
                 ]),),
             SafeArea(
               child: Column(
@@ -195,8 +202,8 @@ class _BedroomState extends State<Bedroom> {
                                         Expanded(
                                           child: CupertinoSlider(
                                             value: intensity,
-                                            min:0,
-                                            max:100,
+                                            min:50,
+                                            max:255,
                                             activeColor: Color(0xffFFD339),
                                             onChanged: (double value) {
                                               setState(() {

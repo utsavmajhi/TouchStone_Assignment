@@ -121,7 +121,7 @@ class _HomepageState extends State<Homepage> {
                                   ),
                                   elevation: 2,
                                   child: Padding(
-                                    padding: const EdgeInsets.all(20.0),
+                                    padding: const EdgeInsets.all(18.0),
                                     child: Column(
                                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -129,8 +129,7 @@ class _HomepageState extends State<Homepage> {
                                         Padding(
                                           padding: const EdgeInsets.only(bottom:18.0),
                                           child: SvgPicture.asset("lib/UIAssets/bed.svg",
-                                          height: 50,
-                                          width: 50,),
+                                          fit: BoxFit.contain,),
                                         ),
                                         Text("Bed room",
                                         style: TextStyle(
@@ -159,7 +158,7 @@ class _HomepageState extends State<Homepage> {
                                 ),
                                 elevation: 2,
                                 child: Padding(
-                                  padding: const EdgeInsets.all(20.0),
+                                  padding: const EdgeInsets.all(18.0),
                                   child: Column(
                                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -167,8 +166,7 @@ class _HomepageState extends State<Homepage> {
                                       Padding(
                                         padding: const EdgeInsets.only(bottom:18.0),
                                         child: SvgPicture.asset("lib/UIAssets/room.svg",
-                                          height: 50,
-                                          width: 50,),
+                                          fit: BoxFit.contain,),
                                       ),
                                       Text("Living room",
                                         style: TextStyle(
@@ -196,7 +194,7 @@ class _HomepageState extends State<Homepage> {
                                 ),
                                 elevation: 2,
                                 child: Padding(
-                                  padding: const EdgeInsets.all(20.0),
+                                  padding: const EdgeInsets.all(18.0),
                                   child: Column(
                                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -204,8 +202,7 @@ class _HomepageState extends State<Homepage> {
                                       Padding(
                                         padding: const EdgeInsets.only(bottom:18.0),
                                         child: SvgPicture.asset("lib/UIAssets/kitchen.svg",
-                                          height: 50,
-                                          width: 50,),
+                                          fit: BoxFit.contain,),
                                       ),
                                       Text("Kitchen",
                                         style: TextStyle(
@@ -233,7 +230,7 @@ class _HomepageState extends State<Homepage> {
                                 ),
                                 elevation: 2,
                                 child: Padding(
-                                  padding: const EdgeInsets.all(20.0),
+                                  padding: const EdgeInsets.all(18.0),
                                   child: Column(
                                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -241,8 +238,7 @@ class _HomepageState extends State<Homepage> {
                                       Padding(
                                         padding: const EdgeInsets.only(bottom:18.0),
                                         child: SvgPicture.asset("lib/UIAssets/bathtube.svg",
-                                          height: 50,
-                                          width: 50,),
+                                          fit: BoxFit.contain,),
                                       ),
                                       Text("Bathroom",
                                         style: TextStyle(
@@ -270,7 +266,7 @@ class _HomepageState extends State<Homepage> {
                                 ),
                                 elevation: 2,
                                 child: Padding(
-                                  padding: const EdgeInsets.all(20.0),
+                                  padding: const EdgeInsets.all(17.0),
                                   child: Column(
                                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -278,8 +274,7 @@ class _HomepageState extends State<Homepage> {
                                       Padding(
                                         padding: const EdgeInsets.only(bottom:18.0),
                                         child: SvgPicture.asset("lib/UIAssets/house.svg",
-                                          height: 50,
-                                          width: 50,),
+                                          fit: BoxFit.contain,),
                                       ),
                                       Text("Outdoor",
                                         style: TextStyle(
@@ -307,7 +302,7 @@ class _HomepageState extends State<Homepage> {
                                 ),
                                 elevation: 2,
                                 child: Padding(
-                                  padding: const EdgeInsets.all(20.0),
+                                  padding: const EdgeInsets.all(18.0),
                                   child: Column(
                                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -315,8 +310,7 @@ class _HomepageState extends State<Homepage> {
                                       Padding(
                                         padding: const EdgeInsets.only(bottom:18.0),
                                         child: SvgPicture.asset("lib/UIAssets/balcony.svg",
-                                          height: 50,
-                                          width: 50,),
+                                          fit: BoxFit.contain,),
                                       ),
                                       Text("Balcony",
                                         style: TextStyle(

@@ -6,12 +6,13 @@ import 'dart:math' as math;
 class MyArc extends StatelessWidget {
   final double diameter;
   final Color color;
-  const MyArc({Key key, this.diameter = 200,this.color}) : super(key: key);
+  final int alpha;
+  const MyArc({Key key, this.diameter = 200,this.color,this.alpha}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return CustomPaint(
-      painter: MyPainter(colors: color),
+      painter: MyPainter(colors: color.withAlpha(alpha)),
       size: Size(diameter, diameter),
     );
   }
@@ -36,6 +37,8 @@ class MyPainter extends CustomPainter {
       false,
       paint,
     );
+
+
   }
 
   @override
