@@ -13,7 +13,7 @@ class _BedroomState extends State<Bedroom> {
   List<String> icon_ad=["lib/UIAssets/surface1.svg","lib/UIAssets/furniture-and-household.svg","lib/UIAssets/bed (1).svg"];
   List<Color> color_panel=[Color(0xffFF9B9B),Color(0xff94EB9E),Color(0xff94CAEB),Color(0xffA594EB),Color(0xffDE94EB),Color(0xffEBD094),Colors.white];
   double intensity=255;
-  Color arccolor=Colors.orangeAccent;
+  Color arccolor=Color(0xffEBD094);
   @override
   Widget build(BuildContext context) {
     double maxwidth = MediaQuery.of(context).size.width;
@@ -168,258 +168,266 @@ class _BedroomState extends State<Bedroom> {
                     height: 20,
                   ),
                   Expanded(
-                    child: Stack(
-                      children:[
-                        Padding(
-                          padding: const EdgeInsets.only(top:18.0),
-                          child: Container(
-                            decoration: BoxDecoration(
-                              color: Color(0xffF6F8FB),
-                              borderRadius: BorderRadius.only(
-                                topRight: Radius.circular(40.0),
-                                topLeft: Radius.circular(40.0),
-                              ),
-                            ),
-                            child: Padding(
-                              padding: const EdgeInsets.only(top:30.0,right: 30,left:30),
-                              child: SingleChildScrollView(
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                                  children: [
-                                    Text("Intensity",
-                                      style: TextStyle(
-                                          fontFamily: "Circular Std Book",
-                                          color: Color(0xff022444),
-                                          fontSize: 24,
-                                          fontWeight: FontWeight.bold
-                                      ),),
-                                    SizedBox(
-                                      height: 15,
+                    child: Hero(
+                      tag: "WigeCard",
+                      child: Material(
+                        color: Colors.transparent,
+                        child: Container(
+                          child: Stack(
+                            children:[
+                              Padding(
+                                padding: const EdgeInsets.only(top:18.0),
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                    color: Color(0xffF6F8FB),
+                                    borderRadius: BorderRadius.only(
+                                      topRight: Radius.circular(40.0),
+                                      topLeft: Radius.circular(40.0),
                                     ),
-                                    Row(
-                                      children: [
-                                        SvgPicture.asset("lib/UIAssets/solution2.svg",height: 35,),
-                                        Expanded(
-                                          child: CupertinoSlider(
-                                            value: intensity,
-                                            min:50,
-                                            max:255,
-                                            activeColor: Color(0xffFFD339),
-                                            onChanged: (double value) {
-                                              setState(() {
-                                                intensity = value;
-                                              });
-                                            },
+                                  ),
+                                  child: Padding(
+                                    padding: const EdgeInsets.only(top:30.0,right: 30,left:30),
+                                    child: SingleChildScrollView(
+                                      child: Column(
+                                        crossAxisAlignment: CrossAxisAlignment.stretch,
+                                        children: [
+                                          Text("Intensity",
+                                            style: TextStyle(
+                                                fontFamily: "Circular Std Book",
+                                                color: Color(0xff022444),
+                                                fontSize: 24,
+                                                fontWeight: FontWeight.bold
+                                            ),),
+                                          SizedBox(
+                                            height: 15,
                                           ),
-                                        ),
-                                        SvgPicture.asset("lib/UIAssets/solution1.svg",height: 35,color: Color(0xffFFD239),),
-                                      ],
-                                    ),
-                                    SizedBox(
-                                      height: 25,
-                                    ),
-                                    Text("Colors",
-                                      style: TextStyle(
-                                          fontFamily: "Circular Std Book",
-                                          color: Color(0xff022444),
-                                          fontSize: 24,
-                                          fontWeight: FontWeight.bold
-                                      ),),
-                                    SizedBox(
-                                      height: 15,
-                                    ),
-                                    Container(
-                                      height: 50,
-                                      child: ListView.builder(
-                                          scrollDirection: Axis.horizontal,
-                                          itemCount:color_panel.length,
-                                          itemBuilder: (context,itemIndex){
-                                            if(itemIndex < 6){
-                                              return GestureDetector(
-                                                onTap: (){
-                                                  print(itemIndex);
-                                                  setState(() {
-                                                    arccolor=color_panel[itemIndex];
-                                                  });
-
-                                                },
-                                                child: Padding(
-                                                  padding: const EdgeInsets.only(right:18.0),
-                                                  child: CircleAvatar(
-                                                    radius: 15,
-                                                    backgroundColor: color_panel[itemIndex],
-                                                  ),
+                                          Row(
+                                            children: [
+                                              SvgPicture.asset("lib/UIAssets/solution2.svg",height: 35,),
+                                              Expanded(
+                                                child: CupertinoSlider(
+                                                  value: intensity,
+                                                  min:50,
+                                                  max:255,
+                                                  activeColor: Color(0xffFFD339),
+                                                  onChanged: (double value) {
+                                                    setState(() {
+                                                      intensity = value;
+                                                    });
+                                                  },
                                                 ),
-                                              );
-                                            }
-                                              return Padding(
-                                                padding: const EdgeInsets.only(right:18.0),
-                                                child: CircleAvatar(
-                                                  backgroundColor: Colors.white,
-                                                  child: SvgPicture.asset("lib/UIAssets/+.svg"),
-                                                ),
-                                              );
-                                          }),
-                                    ),
-                                    SizedBox(
-                                      height: 25,
-                                    ),
-                                    Text("Scenes",
-                                      style: TextStyle(
-                                          fontFamily: "Circular Std Book",
-                                          color: Color(0xff022444),
-                                          fontSize: 24,
-                                          fontWeight: FontWeight.bold
-                                      ),),
-                                    SizedBox(
-                                      height: 15,
-                                    ),
-                                    Row(
-                                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                      children: [
-                                        Container(
-                                          height:58,
-                                          width: maxwidth/2.5,
-                                          decoration: BoxDecoration(
-                                            borderRadius: BorderRadius.circular(15.0),
-                                            gradient: LinearGradient(
-                                              colors: <Color>[
-                                                Color(0xFFFF9B9B),
-                                                Color(0xffFFBC91)
-
-                                              ],
-                                            ),
+                                              ),
+                                              SvgPicture.asset("lib/UIAssets/solution1.svg",height: 35,color: Color(0xffFFD239),),
+                                            ],
                                           ),
-                                          child:Center(
-                                              child: Row(
+                                          SizedBox(
+                                            height: 25,
+                                          ),
+                                          Text("Colors",
+                                            style: TextStyle(
+                                                fontFamily: "Circular Std Book",
+                                                color: Color(0xff022444),
+                                                fontSize: 24,
+                                                fontWeight: FontWeight.bold
+                                            ),),
+                                          SizedBox(
+                                            height: 15,
+                                          ),
+                                          Container(
+                                            height: 50,
+                                            child: ListView.builder(
+                                                scrollDirection: Axis.horizontal,
+                                                itemCount:color_panel.length,
+                                                itemBuilder: (context,itemIndex){
+                                                  if(itemIndex < 6){
+                                                    return GestureDetector(
+                                                      onTap: (){
+                                                        print(itemIndex);
+                                                        setState(() {
+                                                          arccolor=color_panel[itemIndex];
+                                                        });
+
+                                                      },
+                                                      child: Padding(
+                                                        padding: const EdgeInsets.only(right:18.0),
+                                                        child: CircleAvatar(
+                                                          radius: 15,
+                                                          backgroundColor: color_panel[itemIndex],
+                                                        ),
+                                                      ),
+                                                    );
+                                                  }
+                                                    return Padding(
+                                                      padding: const EdgeInsets.only(right:18.0),
+                                                      child: CircleAvatar(
+                                                        backgroundColor: Colors.white,
+                                                        child: SvgPicture.asset("lib/UIAssets/+.svg"),
+                                                      ),
+                                                    );
+                                                }),
+                                          ),
+                                          SizedBox(
+                                            height: 25,
+                                          ),
+                                          Text("Scenes",
+                                            style: TextStyle(
+                                                fontFamily: "Circular Std Book",
+                                                color: Color(0xff022444),
+                                                fontSize: 24,
+                                                fontWeight: FontWeight.bold
+                                            ),),
+                                          SizedBox(
+                                            height: 15,
+                                          ),
+                                          Row(
                                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                                             children: [
-                                              SvgPicture.asset("lib/UIAssets/surface1.svg",height:25,color: Colors.white,),
-                                              Text("Birthday",
-                                              style: TextStyle(
-                                                  fontFamily: "Circular Std Book",
-                                                  color: Colors.white,
-                                                  fontSize: 16,
+                                              Container(
+                                                height:58,
+                                                width: maxwidth/2.5,
+                                                decoration: BoxDecoration(
+                                                  borderRadius: BorderRadius.circular(15.0),
+                                                  gradient: LinearGradient(
+                                                    colors: <Color>[
+                                                      Color(0xFFFF9B9B),
+                                                      Color(0xffFFBC91)
 
-                                              ),),
+                                                    ],
+                                                  ),
+                                                ),
+                                                child:Center(
+                                                    child: Row(
+                                                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                                  children: [
+                                                    SvgPicture.asset("lib/UIAssets/surface1.svg",height:25,color: Colors.white,),
+                                                    Text("Birthday",
+                                                    style: TextStyle(
+                                                        fontFamily: "Circular Std Book",
+                                                        color: Colors.white,
+                                                        fontSize: 16,
+
+                                                    ),),
+                                                  ],
+                                                )) ,
+                                              ),
+                                              Container(
+                                                height:58,
+                                                width: maxwidth/2.5,
+                                                decoration: BoxDecoration(
+                                                  borderRadius: BorderRadius.circular(15.0),
+                                                  gradient: LinearGradient(
+                                                    colors: <Color>[
+                                                      Color(0xffA693EB),
+                                                      Color(0xffDA93EB)
+
+                                                    ],
+                                                  ),
+                                                ),
+                                                child:Center(
+                                                    child: Row(
+                                                      mainAxisAlignment: MainAxisAlignment.spaceEvenly  ,
+                                                      children: [
+                                                        SvgPicture.asset("lib/UIAssets/surface1.svg",height:25,color: Colors.white,),
+                                                        Text("Party      ",
+                                                          style: TextStyle(
+                                                            fontFamily: "Circular Std Book",
+                                                            color: Colors.white,
+                                                            fontSize: 16,
+
+                                                          ),),
+                                                      ],
+                                                    )) ,
+                                              ),
                                             ],
-                                          )) ,
-                                        ),
-                                        Container(
-                                          height:58,
-                                          width: maxwidth/2.5,
-                                          decoration: BoxDecoration(
-                                            borderRadius: BorderRadius.circular(15.0),
-                                            gradient: LinearGradient(
-                                              colors: <Color>[
-                                                Color(0xffA693EB),
-                                                Color(0xffDA93EB)
-
-                                              ],
-                                            ),
                                           ),
-                                          child:Center(
-                                              child: Row(
-                                                mainAxisAlignment: MainAxisAlignment.spaceEvenly  ,
-                                                children: [
-                                                  SvgPicture.asset("lib/UIAssets/surface1.svg",height:25,color: Colors.white,),
-                                                  Text("Party      ",
-                                                    style: TextStyle(
-                                                      fontFamily: "Circular Std Book",
-                                                      color: Colors.white,
-                                                      fontSize: 16,
-
-                                                    ),),
-                                                ],
-                                              )) ,
-                                        ),
-                                      ],
-                                    ),
-                                    SizedBox(
-                                      height: 15,
-                                    ),
-                                    Row(
-                                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                      children: [
-                                        Container(
-                                          height:58,
-                                          width: maxwidth/2.5,
-                                          decoration: BoxDecoration(
-                                            borderRadius: BorderRadius.circular(15.0),
-                                            gradient: LinearGradient(
-                                              colors: <Color>[
-                                                Color(0xff93CAEB),
-                                                Color(0xff93DDEB)
-
-                                              ],
-                                            ),
+                                          SizedBox(
+                                            height: 15,
                                           ),
-                                          child:Center(
-                                              child: Row(
-                                                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                                children: [
-                                                  SvgPicture.asset("lib/UIAssets/surface1.svg",height:25,color: Colors.white,),
-                                                  Text("Relax   ",
-                                                    style: TextStyle(
-                                                      fontFamily: "Circular Std Book",
-                                                      color: Colors.white,
-                                                      fontSize: 16,
+                                          Row(
+                                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                            children: [
+                                              Container(
+                                                height:58,
+                                                width: maxwidth/2.5,
+                                                decoration: BoxDecoration(
+                                                  borderRadius: BorderRadius.circular(15.0),
+                                                  gradient: LinearGradient(
+                                                    colors: <Color>[
+                                                      Color(0xff93CAEB),
+                                                      Color(0xff93DDEB)
 
-                                                    ),),
-                                                ],
-                                              )) ,
-                                        ),
-                                        Container(
-                                          height:58,
-                                          width: maxwidth/2.5,
-                                          decoration: BoxDecoration(
-                                            borderRadius: BorderRadius.circular(15.0),
-                                            gradient: LinearGradient(
-                                              colors: <Color>[
-                                                Color(0xff89DD94),
-                                                Color(0xffBFEC92)
+                                                    ],
+                                                  ),
+                                                ),
+                                                child:Center(
+                                                    child: Row(
+                                                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                                      children: [
+                                                        SvgPicture.asset("lib/UIAssets/surface1.svg",height:25,color: Colors.white,),
+                                                        Text("Relax   ",
+                                                          style: TextStyle(
+                                                            fontFamily: "Circular Std Book",
+                                                            color: Colors.white,
+                                                            fontSize: 16,
 
-                                              ],
-                                            ),
+                                                          ),),
+                                                      ],
+                                                    )) ,
+                                              ),
+                                              Container(
+                                                height:58,
+                                                width: maxwidth/2.5,
+                                                decoration: BoxDecoration(
+                                                  borderRadius: BorderRadius.circular(15.0),
+                                                  gradient: LinearGradient(
+                                                    colors: <Color>[
+                                                      Color(0xff89DD94),
+                                                      Color(0xffBFEC92)
+
+                                                    ],
+                                                  ),
+                                                ),
+                                                child:Center(
+                                                    child: Row(
+                                                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                                      children: [
+                                                        SvgPicture.asset("lib/UIAssets/surface1.svg",height:25,color: Colors.white,),
+                                                        Text("Fun       ",
+                                                          style: TextStyle(
+                                                            fontFamily: "Circular Std Book",
+                                                            color: Colors.white,
+                                                            fontSize: 16,
+
+                                                          ),),
+                                                      ],
+                                                    )) ,
+                                              ),
+                                            ],
                                           ),
-                                          child:Center(
-                                              child: Row(
-                                                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                                children: [
-                                                  SvgPicture.asset("lib/UIAssets/surface1.svg",height:25,color: Colors.white,),
-                                                  Text("Fun       ",
-                                                    style: TextStyle(
-                                                      fontFamily: "Circular Std Book",
-                                                      color: Colors.white,
-                                                      fontSize: 16,
-
-                                                    ),),
-                                                ],
-                                              )) ,
-                                        ),
-                                      ],
+                                          SizedBox(
+                                            height: 25,
+                                          )
+                                        ],
+                                      ),
                                     ),
-                                    SizedBox(
-                                      height: 25,
-                                    )
-                                  ],
+                                  ),
                                 ),
                               ),
-                            ),
+                              Positioned(
+                                right:20,
+                                  child: Card(
+                                    elevation: 5.0,
+                                    shape: CircleBorder(),
+                                    clipBehavior: Clip.antiAlias,
+                                    child: CircleAvatar(
+                                      backgroundColor: Colors.white,
+                                        child: SvgPicture.asset("lib/UIAssets/Icon awesome-power-off.svg",fit: BoxFit.contain,height: 25,)),
+                                  )),
+
+                            ],
                           ),
                         ),
-                        Positioned(
-                          right:20,
-                            child: Card(
-                              elevation: 5.0,
-                              shape: CircleBorder(),
-                              clipBehavior: Clip.antiAlias,
-                              child: CircleAvatar(
-                                backgroundColor: Colors.white,
-                                  child: SvgPicture.asset("lib/UIAssets/Icon awesome-power-off.svg",fit: BoxFit.contain,height: 25,)),
-                            )),
-
-                      ],
+                      ),
                     ),
                   )
                 ],
